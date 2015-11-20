@@ -945,15 +945,13 @@ sub parse_amount {
     return 0;
   }
 
-  if ($myconfig->{numberformat} eq '1,000.00') {
-    $amount =~ s/,//g;
-  } elsif ($myconfig->{numberformat} eq '1.000,00') {
+  $amount =~ s/\'//g;
+ if (   ($myconfig->{numberformat} eq '1.000,00')
+      || ($myconfig->{numberformat} eq '1000,00')) {
     $amount =~ s/\.//g;
-  } elsif ($myconfig->{numberformat} eq "1'000.00") {
-    $amount =~ s/\'//g;
+    $amount =~ s/,/\./g;
   }
-
-  $amount =~ s/,/\./g;
+  $amount =~ s/,//g;
 
   $main::lxdebug->leave_sub(2);
 
@@ -2898,8 +2896,8 @@ sub create_links {
             (SELECT cu.name FROM currencies cu WHERE cu.id=d.currency_id) AS defaultcurrency,
             (SELECT c.accno FROM chart c WHERE d.fxgain_accno_id = c.id) AS fxgain_accno,
             (SELECT c.accno FROM chart c WHERE d.fxloss_accno_id = c.id) AS fxloss_accno,
-           (SELECT c.accno FROM chart c WHERE d.rndgain_accno_id = c.id) AS rndgain_accno,
-           (SELECT c.accno FROM chart c WHERE d.rndloss_accno_id = c.id) AS rndloss_accno
+            (SELECT c.accno FROM chart c WHERE d.rndgain_accno_id = c.id) AS rndgain_accno,
+            (SELECT c.accno FROM chart c WHERE d.rndloss_accno_id = c.id) AS rndloss_accno
           FROM defaults d|;
     $ref = selectfirst_hashref_query($self, $dbh, $query);
     map { $self->{$_} = $ref->{$_} } keys %$ref;
