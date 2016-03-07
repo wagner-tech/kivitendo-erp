@@ -1,0 +1,48 @@
+#!/bin/sh
+
+# kivitendo postinst
+
+# add sysal site to apache configuration
+cd /etc/apache2/sites-available
+if ! grep "#kivitendo#" default >/dev/null
+then
+	awk '/<.Virtual/ { print ""; \
+                     print "#kivitendo#"; \
+                     print "# Configuration for kivitendo"; \
+                     print "# Kivitendo-Installattion mit FCGI"; \
+                     print "AddHandler fcgid-script .fpl"; \
+                     print "AliasMatch ^/kivitendo/[^/]+\.pl /opt/kivitendo/dispatcher.fpl"; \
+                     print "Alias /kivitendo/ /opt/kivitendo/"; \
+                     print "FcgidMaxRequestLen 10485760"; \
+
+                     print "<Directory /opt/kivitendo>"; \
+                     print "  AllowOverride All"; \
+                     print "  Options ExecCGI Includes FollowSymlinks"; \
+                     print "  Order Allow,Deny"; \
+                     print "  Allow from All"; \
+                     print "</Directory>"; \
+
+                     print "<DirectoryMatch /opt/kivitendo/users>"; \
+                     print "  Order Deny,Allow"; \
+                     print "  Deny from All"; \
+                     print "</DirectoryMatch>"; \
+		                 print "#kivitendo_end#";  } \
+		               {print $0;}' default >xxx
+
+	mv xxx default
+	echo "/etc/apache2/sites-available/default changed"
+	/etc/init.d/apache2 restart
+fi
+
+# check configuration file
+if [ ! -e /opt/kivitendo/config/kivitendo.conf ]
+then
+	echo "Type admin password:"
+	read a
+	sed "s/admin123/$a/" /opt/kivitendo/config/kivitendo.conf.default >/opt/kivitendo/config/kivitendo.conf
+fi
+
+# allow write access to some directories
+chown www-data /opt/kivitendo/users /opt/kivitendo/templates
+chgrp www-data /opt/kivitendo/users /opt/kivitendo/templates
+
