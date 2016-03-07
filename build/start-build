@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+# checkout build utilities
+if [ ! -d projects ]; then
+	git clone https://github.com/wagner-tech/projects/
+fi
+
+ln -sf projects/tools/make/configure .
+
+echo "Nexr step: call 'configure <project> <tag>'"

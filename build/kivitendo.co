@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+
+# parameter: $1: git tag to build
+git clone https://github.com/wagner-tech/kivitendo-erp
+cd kivitendo-erp
+git checkout $1
