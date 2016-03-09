@@ -1,0 +1,22 @@
+#!/bin/bash
+set -e
+
+# parameter: $1: git tag to build
+
+../kivitendo.co $1
+if [ -d GF ]
+then
+	pushd GF >/dev/null
+		svn up
+	popd >/dev/null
+else
+	svn co https://wagnertech.de/svn/verwaltung/GF
+fi
+
+pushd .. >/dev/null
+	ln -sf src/kivitendo-erp/doc/Steckbrief.tex .
+	ln -sf src/GF/wagner_tech_briefbogen_blau_fs1.pdf .
+	ln -sf kivitendo-steckbrief.pre make.pre
+	ln -sf projects/tools/tex/wallpaper.sty .
+	ln -s src/kivitendo-erp/image/Bildschirmfoto-kivitendo-steigmann-3.3.0-MozillaFirefox.png .
+popd >/dev/null

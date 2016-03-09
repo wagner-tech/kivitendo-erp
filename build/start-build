@@ -8,4 +8,4 @@ fi
 
 ln -sf projects/tools/make/configure .
 
-echo "Nexr step: call 'configure <project> <tag>'"
+echo "Next step: call 'configure <project> <tag>'"

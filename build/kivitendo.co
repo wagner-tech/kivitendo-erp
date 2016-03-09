@@ -2,6 +2,14 @@
 set -e
 
 # parameter: $1: git tag to build
-git clone https://github.com/wagner-tech/kivitendo-erp
-cd kivitendo-erp
-git checkout $1
+
+if [ -d kivitendo-erp ]
+then
+	pushd kivitendo-erp >/dev/null
+	git fetch
+else
+	git clone https://github.com/wagner-tech/kivitendo-erp
+	pushd kivitendo-erp >/dev/null
+fi
+	git checkout $1
+popd >/dev/null
