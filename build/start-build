@@ -2,10 +2,16 @@
 set -e
 
 # checkout build utilities
-if [ ! -d projects ]; then
+if [ -d projects ]; then
+	pushd projects >/dev/null
+		git pull origin master
+	popd >/dev/null
+else
 	git clone https://github.com/wagner-tech/projects/
 fi
 
 ln -sf projects/tools/make/configure .
 
 echo "Next step: call 'configure <project> <tag>'"
+echo "Available are:"
+ls *.co
