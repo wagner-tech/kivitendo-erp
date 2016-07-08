@@ -6,6 +6,9 @@
 \usepackage{wallpaper}
 \usepackage{hyperref} 
 
+\usepackage{geometry}
+\geometry{a4paper,left=25mm,right=25mm, top=25mm, bottom=3cm}
+
 \renewcommand{\familydefault}{\sfdefault}
 
 \title{kivitendo: Ein Programm für Buchhaltung und Lagerwesen}
@@ -16,10 +19,12 @@
 
 \begin{document}
 
+\pagenumbering{gobble} % no page numbers
 \maketitle
 
 \begin{abstract}
-Kivitendo zur Buchhaltung: Kivitendo ist ein browserbasiertes Buchhaltungsprogramm, mehrbenutzer- und mandantenfähig (\url{http://www.kivitendo.org}).
+kivitendo zur Buchhaltung: kivitendo ist ein browserbasiertes Buchhaltungsprogramm, mehrbenutzer- und mandantenfähig (\url{http://www.kivitendo.org}). kivitendo-mebil sind Ergänzungen der WagnerTech UG, darunter eine Finanzantsschnittstelle zur Übertragung
+der monatlichen UStVA.
 
 \end{abstract}
 
@@ -27,11 +32,23 @@ Kivitendo zur Buchhaltung: Kivitendo ist ein browserbasiertes Buchhaltungsprogra
 Im Bereich der OpenSource-Software gibt es heute viele Programme, die für die geschäftlichen Anforderungen kleiner und mittelgroßer Unternehmen geeignet sind. Der Vorteil von quelloffener Software liegt dabei nicht primär in der kostenlosen Verfügbarkeit, sondern darin, dass sie von jedermann, also auch von uns, für Ihre speziellen Bedürfnisse angepasst werden dürfen.
 
 Das Programm kivitendo ist eine vielseitige, ausgereifte Anwendung, die kleinen und mittelgroßen Firmen
-die für die Buchhaltung und das Lagerwesen nötigen Funktionen zur Verfügung stellt. kivitendo ist „das Eine“ für „das Alles“: Basis-ERP-System mit Artikeln, Waren, Kunden, Lieferanten, Lager, Angebote, Rechnungen, Mahnwesen, Buchungsvorbereitung für die Fibu, Kontakte mit grundlegenden CRM-Funktionen und noch einiges mehr. 
+die für die Buchhaltung und das Lagerwesen nötigen Funktionen zur Verfügung stellt. kivitendo ist „das Eine“ für „das Alles“: Basis-ERP-System mit Artikeln, Waren, Kunden, Lieferanten, Lager, Angebote, Rechnungen, Mahnwesen, Buchungsvorbereitung für die Fibu, Kontakte mit grundlegenden CRM-Funktionen und noch einiges mehr.
+
+kivitendo wird auf einem Server betrieben. Die Mitarbeiter greifen über ihren Webbrowser auf das Programm zu. Eine lokale
+Installation entfällt damit.
+Für die Zusammenarbeit mit Ihrem Steuerberater bietet kivitendo einen DATEV-Export.
 
 WagnerTech UG betreut Sie bei Installation und Einführung und kann das Programm auch nach Ihren speziellen Anforderungen
 ergänzen. Eine erste Ergänzung, die wir kivitendo hinzugefügt haben, ist eine Finanzamtsschnittstelle zur Übertragung der
 monatlichen Umsatzsteueranmeldung.
 \end{multicols}
+
+\begin{figure} [h]
+   \centering
+      \frame{\includegraphics[width=0.8 \linewidth]{Bildschirmfoto.png}}
+   %\captionof{figure}{Aussehen einer Lohnabrechnung}
+   \label{abb:screenshot}
+\end{figure}
+
 
 \end{document}

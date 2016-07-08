@@ -3,7 +3,14 @@ set -e
 
 # parameter: $1: git tag to build
 
-../kivitendo.co $1
+if [ "$1" == "TOP" ]; then
+	mkdir kivitendo-erp/
+	ln -s ../../../doc/ kivitendo-erp/
+	ln -s ../../../image/ kivitendo-erp/
+else
+	../kivitendo.co $1
+fi
+
 if [ -d GF ]
 then
 	pushd GF >/dev/null
@@ -16,7 +23,7 @@ fi
 pushd .. >/dev/null
 	ln -sf src/kivitendo-erp/doc/Steckbrief.tex .
 	ln -sf src/GF/wagner_tech_briefbogen_blau_fs1.pdf .
-	ln -sf kivitendo-steckbrief.pre make.pre
 	ln -sf projects/tools/tex/wallpaper.sty .
-	ln -s src/kivitendo-erp/image/Bildschirmfoto-kivitendo-steigmann-3.3.0-MozillaFirefox.png .
+	ln -sf src/kivitendo-erp/image/Bildschirmfoto-kivitendo-steigmann-3.3.0-MozillaFirefox.png Bildschirmfoto.png
+	echo "COMPILE_TARGET = Steckbrief.pdf" >make.pre
 popd >/dev/null
