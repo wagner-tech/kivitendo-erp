@@ -8,7 +8,7 @@ if [ "$1" == "TOP" ]; then
 	ln -s ../../../doc/ kivitendo-erp/
 	ln -s ../../../image/ kivitendo-erp/
 else
-	../kivitendo.co $1
+	../kivitendo.co $*
 fi
 
 if [ -d GF ]
