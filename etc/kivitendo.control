@@ -1,0 +1,9 @@
+Package: kivitendo
+Version: 3.4.1-%BUILD%
+Section: base
+Priority: optional
+Architecture: all
+Depends: apache2, postgresql, libapache2-mod-fcgid
+Maintainer: WagnerTech UG <mail@wagnertech.de>
+Description: kivitendo-ERP
+

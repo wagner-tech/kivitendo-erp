@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+
+# kivitendo postinst
+
+# check configuration file
+if [ ! -e /opt/kivitendo-erp-3.4.1/config/kivitendo.conf ]
+then
+	echo "Type new kivitendo admin password:"
+	read a
+	sed "s/admin123/$a/" /opt/kivitendo-erp-3.4.1/config/kivitendo.conf.default >/opt/kivitendo-erp-3.4.1/config/kivitendo.conf
+fi
+
+# allow write access to some directories
+chown www-data /opt/kivitendo-erp-3.4.1/users /opt/kivitendo-erp-3.4.1/templates
+chgrp www-data /opt/kivitendo-erp-3.4.1/users /opt/kivitendo-erp-3.4.1/templates
+
