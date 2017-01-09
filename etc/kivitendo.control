@@ -1,5 +1,5 @@
 Package: kivitendo
-Version: 3.4.1-%BUILD%
+Version: %BUILD%
 Section: base
 Priority: optional
 Architecture: all
