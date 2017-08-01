@@ -4,20 +4,28 @@ set -e
 # parameter: $1: git tag to build
 # options: -g <alternative repository>
 
-repos="https://github.com/wagner-tech"
-if getopts "g:" opt; then
-	repos=$OPTARG
-	shift 2
-fi
+#repos="https://github.com/wagner-tech"
+#if getopts "g:" opt; then
+#	repos=$OPTARG
+#	shift 2
+#fi
+#
+#if [ -e kivitendo-erp ]
+#then
+#	pushd kivitendo-erp >/dev/null
+	#branch=$(git rev-parse --abbrev-ref HEAD)
+	#git pull origin $branch
+#else
+#	git clone $repos/kivitendo-erp
+#	pushd kivitendo-erp >/dev/null
+#fi
+#	git checkout $1
+#popd >/dev/null
 
-if [ -d kivitendo-erp ]
-then
-	pushd kivitendo-erp >/dev/null
-	branch=$(git rev-parse --abbrev-ref HEAD)
-	git pull origin $branch
-else
-	git clone $repos/kivitendo-erp
-	pushd kivitendo-erp >/dev/null
-fi
+# alternativer Versuch: Es wird das lokale Repository geklont:
+
+git clone ../..
+pushd kivitendo-erp >/dev/null
 	git checkout $1
 popd >/dev/null
+
