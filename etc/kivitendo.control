@@ -3,14 +3,14 @@ Version: %BUILD%
 Section: base
 Priority: optional
 Architecture: all
-Depends: apache2, postgresql, libapache2-mod-fcgid, libalgorithm-checkdigits-perl
-	libgd-gd2-perl, libhtml-restrict-perl, libimage-info-perl libconfig-std-perl
-	libarchive-zip-perl libclone-perl libdatetime-perl
-	libdatetime-format-strptime-perl libdbi-perl libdbd-pg-perl
-	libemail-mime-perl libfile-copy-recursive-perl libjson-perl
-	libparams-validate-perl libpdf-api2-perl librose-object-perl
-	librose-db-perl librose-db-object-perl libtemplate-perl
-	libtext-csv-xs-perl libxml-writer-perl
+Depends: apache2, postgresql, libapache2-mod-fcgid, libalgorithm-checkdigits-perl,
+	libgd-gd2-perl, libhtml-restrict-perl, libimage-info-perl, libconfig-std-perl,
+	libarchive-zip-perl, libclone-perl, libdatetime-perl,
+	libdatetime-format-strptime-perl, libdbi-perl, libdbd-pg-perl,
+	libemail-mime-perl, libfile-copy-recursive-perl, libjson-perl,
+	libparams-validate-perl, libpdf-api2-perl, librose-object-perl,
+	librose-db-perl, librose-db-object-perl, libtemplate-perl,
+	libtext-csv-xs-perl, libxml-writer-perl
 Maintainer: WagnerTech UG <mail@wagnertech.de>
 Description: kivitendo-ERP
 
