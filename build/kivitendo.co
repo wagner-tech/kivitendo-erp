@@ -24,7 +24,8 @@ set -e
 
 # alternativer Versuch: Es wird das lokale Repository geklont:
 
-git clone ../..
+cwd=$(pwd)
+git clone ${cwd%/build/src}
 pushd kivitendo-erp >/dev/null
 	git checkout $1
 popd >/dev/null
