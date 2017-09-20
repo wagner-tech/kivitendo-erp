@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-
+#test
 # parameter: $1: base dir for copy (optional)
 
 mkdir -p $1/opt
