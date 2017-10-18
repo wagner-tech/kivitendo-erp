@@ -10,7 +10,8 @@ Depends: apache2, postgresql, libapache2-mod-fcgid, libalgorithm-checkdigits-per
 	libemail-mime-perl, libfile-copy-recursive-perl, libjson-perl,
 	libparams-validate-perl, libpdf-api2-perl, librose-object-perl,
 	librose-db-perl, librose-db-object-perl, libtemplate-perl,
-	libtext-csv-xs-perl, libxml-writer-perl, libdata-dump-perl
+	libtext-csv-xs-perl, libxml-writer-perl, libdata-dump-perl,
+	libtype-tiny-perl, lib-moo-perl
 Maintainer: WagnerTech UG <mail@wagnertech.de>
 Description: kivitendo-ERP
 
